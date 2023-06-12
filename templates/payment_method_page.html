@@ -1,0 +1,24 @@
+{% extends 'couriour.html' %}
+{% load bootstrap4 %}
+
+
+
+
+
+
+{% block content %}
+<div class="col-lg-6 card bg-white mt-2 mb-5">
+    <div class="card-body">
+        <h4>Payment Method</h4>
+        {{client_secret}}
+        <form id="payment-form" data-secret="{{ client_secret }}">
+            <div id="payment-element">
+              <!-- Elements will create form elements here -->
+            </div>
+          
+            <button id="submit">Submit</button>
+          </form>
+    </div>
+</div>
+
+{%endblock%}

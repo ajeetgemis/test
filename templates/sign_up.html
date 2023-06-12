@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{%block main%}
+
+<div class="container-fluid mt-5">
+    <div class="row justify-content-center">
+    <div class="col-lg-4">
+        <div class="card">
+            
+        <div class="card-body">
+            <h4 class="text-center text-uppercase mb-3">
+                
+            <b>
+               
+                {%if request.GET.next == '/Couriour/' %}
+                Courior
+                {%else %}
+                Customer
+                {% endif %}
+             
+              
+               
+            </b>
+            </h4>
+            <form method="POST">
+                {% csrf_token %}
+                {%bootstrap_form form%}
+              
+                
+            <button type="submit" text="Submit" class="btn btn-warning">Submit</button>
+         <!--   <p class="text-center mt-5">Alreadyhave Account<a href="/sign_in/?next={{request.GET.next}}">SignIp</a></p>-->
+            <a href="{% url 'social:begin' 'facebook' %}?next={{request.GET.next}}" class="btn btn-primary">Login With Facebook</a>    
+           
+        </form>
+        
+        </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+{%endblock main%}

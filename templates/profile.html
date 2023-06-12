@@ -1,0 +1,43 @@
+{% extends 'couriour.html' %}
+
+{% load bootstrap4 %}
+{% block content %}
+
+<div class="col-lg-6">
+    <div class="card-body">
+        
+            <form method="post">
+                {% csrf_token %}
+            <h4> {{request.user}}</h4>
+            {%bootstrap_form user_form%}
+            <input name="action" type="hidden" value="profile"  enctype='multipart/form-data'></input>
+            <button type="submit" value="Save" class="btn btn-warning">Save</button>
+            </form>
+      
+        
+    </div>
+
+    <div class="card-body">    
+    <form method="post">
+        {% csrf_token %}
+    <h4> {{request.user}}</h4>
+    {%bootstrap_form cus_form%}
+    <input name="action" type="hidden" value="customer"  enctype='multipart/form-data'></input>
+    <button type="submit" value="Save" class="btn btn-warning">Save</button>
+    </form>
+
+</div>
+
+<div class="card-body">    
+    <form method="post" enctype='multipart/form-data'>
+        {% csrf_token %}
+    <h4> {{request.user}}</h4>
+    {%bootstrap_form pass_form%}
+    <input name="action" type="hidden" value="password" enctype='multipart/form-data'></input>
+    <button type="submit" value="Save" class="btn btn-warning">Save</button>
+    </form>
+
+</div>
+</div>
+</div>
+{% endblock content %}
